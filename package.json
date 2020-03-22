@@ -1,42 +1,37 @@
 {
   "name": "vue-d3-axis",
-  "version": "0.1.2",
+  "version": "0.0.1",
   "description": "Vue-based Axis component for D3",
-  "main": "lib/vue-d3-axis.js",
+  "main": "dist/vue-d3-axis.js",
   "repository": "https://github.com/seevee/vue-d3-axis.git",
   "author": "seevee",
   "license": "MIT",
   "scripts": {
-    "prepublish": "rm -rf lib && babel src --out-dir lib --ignore __tests__ && flow-copy-source -i **/__tests__/**/*.js -v src lib",
-    "lint": "eslint --ext .js,.jsx .",
-    "flow_check": "flow check",
+    "prepublish": "rm -rf dist && tsc -p tsconfig.build.json",
+    "lint": "eslint --ext .ts .",
     "test:travis": "jest",
-    "prettier": "prettier --write --bracket-spacing=false --single-quote --trailing-comma src/*.js src/**/*.js"
+    "test": "jest --verbose --coverage"
   },
   "peerDependencies": {
-    "react": "^15.0.0"
+    "vue": "^2.6.11"
   },
   "dependencies": {},
   "devDependencies": {
-    "babel-cli": "^6.22.2",
-    "babel-core": "^6.22.1",
-    "babel-eslint": "^7.1.1",
-    "babel-jest": "^18.0.0",
-    "babel-preset-latest": "^6.22.0",
-    "babel-preset-react": "^6.22.0",
-    "babel-preset-stage-0": "^6.22.0",
-    "d3-scale": "^1.0.4",
-    "eslint": "^3.14.0",
-    "eslint-config-airbnb": "^14.0.0",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^3.0.2",
-    "eslint-plugin-react": "^6.9.0",
-    "flow-bin": "^0.37.0",
-    "flow-copy-source": "^1.1.0",
-    "jest": "^18.1.0",
-    "prettier": "^0.11.0",
-    "react": "^15.4.2",
-    "react-test-renderer": "^15.4.2"
+    "@types/jest": "^25.1.4",
+    "@types/node": "^13.9.2",
+    "@typescript-eslint/eslint-plugin": "^2.24.0",
+    "@typescript-eslint/parser": "^2.24.0",
+    "@vue/test-utils": "^1.0.0-beta.32",
+    "d3-scale": "^3.2.1",
+    "eslint": "^6.8.0",
+    "eslint-plugin-jest": "^23.8.2",
+    "jest": "^25.1.0",
+    "jsdom": "^16.2.1",
+    "jsdom-global": "^3.0.2",
+    "ts-jest": "^25.2.1",
+    "typescript": "^3.8.3",
+    "vue": "^2.6.11",
+    "vue-template-compiler": "^2.6.11"
   },
   "keywords": [
     "vue",
