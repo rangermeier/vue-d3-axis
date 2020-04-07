@@ -5,7 +5,8 @@ test('Works with bandwidth scales', () => {
   const scale = scaleBand()
     .domain(['foo', 'bar', 'baz'])
     .range([0, 500])
-    .padding(20)
+    .padding(1)
+
   const props = axisPropsFromBandedScale(scale)
   expect(props).toMatchSnapshot()
 
