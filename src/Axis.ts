@@ -22,7 +22,7 @@ const defaultAxisStyle: AxisStyle = {
   tickSizeOuter: 6,
   tickPadding: 3,
   strokeWidth: 1,
-  strokeColor: 'black',
+  strokeColor: 'currentColor',
   tickFont: 'sans-serif',
   tickFontSize: 10
 }
