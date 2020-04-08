@@ -10,7 +10,7 @@ exports[`Renders bottom-oriented 1`] = `
 >
   <path
     d="M0.5,6V0.5H1000.5V6"
-    stroke="black"
+    stroke="currentColor"
   />
   <g
     key="tick-0"
@@ -18,14 +18,14 @@ exports[`Renders bottom-oriented 1`] = `
     transform="translate(0,0)"
   >
     <line
-      stroke="black"
+      stroke="currentColor"
       x1="0.5"
       x2="0.5"
       y2="6"
     />
     <text
       dy="0.71em"
-      fill="black"
+      fill="currentColor"
       x="0.5"
       y="9"
     >
@@ -38,14 +38,14 @@ exports[`Renders bottom-oriented 1`] = `
     transform="translate(500,0)"
   >
     <line
-      stroke="black"
+      stroke="currentColor"
       x1="0.5"
       x2="0.5"
       y2="6"
     />
     <text
       dy="0.71em"
-      fill="black"
+      fill="currentColor"
       x="0.5"
       y="9"
     >
@@ -58,14 +58,14 @@ exports[`Renders bottom-oriented 1`] = `
     transform="translate(1000,0)"
   >
     <line
-      stroke="black"
+      stroke="currentColor"
       x1="0.5"
       x2="0.5"
       y2="6"
     />
     <text
       dy="0.71em"
-      fill="black"
+      fill="currentColor"
       x="0.5"
       y="9"
     >
@@ -85,7 +85,7 @@ exports[`Renders left-oriented 1`] = `
 >
   <path
     d="M-6,0.5H0.5V1000.5H-6"
-    stroke="black"
+    stroke="currentColor"
   />
   <g
     key="tick-0"
@@ -93,14 +93,14 @@ exports[`Renders left-oriented 1`] = `
     transform="translate(0,0)"
   >
     <line
-      stroke="black"
+      stroke="currentColor"
       x2="-6"
       y1="0.5"
       y2="0.5"
     />
     <text
       dy="0.32em"
-      fill="black"
+      fill="currentColor"
       x="-9"
       y="0.5"
     >
@@ -113,14 +113,14 @@ exports[`Renders left-oriented 1`] = `
     transform="translate(0,500)"
   >
     <line
-      stroke="black"
+      stroke="currentColor"
       x2="-6"
       y1="0.5"
       y2="0.5"
     />
     <text
       dy="0.32em"
-      fill="black"
+      fill="currentColor"
       x="-9"
       y="0.5"
     >
@@ -133,14 +133,14 @@ exports[`Renders left-oriented 1`] = `
     transform="translate(0,1000)"
   >
     <line
-      stroke="black"
+      stroke="currentColor"
       x2="-6"
       y1="0.5"
       y2="0.5"
     />
     <text
       dy="0.32em"
-      fill="black"
+      fill="currentColor"
       x="-9"
       y="0.5"
     >
@@ -160,7 +160,7 @@ exports[`Renders right-oriented 1`] = `
 >
   <path
     d="M6,0.5H0.5V1000.5H6"
-    stroke="black"
+    stroke="currentColor"
   />
   <g
     key="tick-0"
@@ -168,14 +168,14 @@ exports[`Renders right-oriented 1`] = `
     transform="translate(0,0)"
   >
     <line
-      stroke="black"
+      stroke="currentColor"
       x2="6"
       y1="0.5"
       y2="0.5"
     />
     <text
       dy="0.32em"
-      fill="black"
+      fill="currentColor"
       x="9"
       y="0.5"
     >
@@ -188,14 +188,14 @@ exports[`Renders right-oriented 1`] = `
     transform="translate(0,500)"
   >
     <line
-      stroke="black"
+      stroke="currentColor"
       x2="6"
       y1="0.5"
       y2="0.5"
     />
     <text
       dy="0.32em"
-      fill="black"
+      fill="currentColor"
       x="9"
       y="0.5"
     >
@@ -208,14 +208,14 @@ exports[`Renders right-oriented 1`] = `
     transform="translate(0,1000)"
   >
     <line
-      stroke="black"
+      stroke="currentColor"
       x2="6"
       y1="0.5"
       y2="0.5"
     />
     <text
       dy="0.32em"
-      fill="black"
+      fill="currentColor"
       x="9"
       y="0.5"
     >
@@ -235,7 +235,7 @@ exports[`Renders top-oriented 1`] = `
 >
   <path
     d="M0.5,-6V0.5H1000.5V-6"
-    stroke="black"
+    stroke="currentColor"
   />
   <g
     key="tick-0"
@@ -243,14 +243,14 @@ exports[`Renders top-oriented 1`] = `
     transform="translate(0,0)"
   >
     <line
-      stroke="black"
+      stroke="currentColor"
       x1="0.5"
       x2="0.5"
       y2="-6"
     />
     <text
       dy="0em"
-      fill="black"
+      fill="currentColor"
       x="0.5"
       y="-9"
     >
@@ -263,14 +263,14 @@ exports[`Renders top-oriented 1`] = `
     transform="translate(500,0)"
   >
     <line
-      stroke="black"
+      stroke="currentColor"
       x1="0.5"
       x2="0.5"
       y2="-6"
     />
     <text
       dy="0em"
-      fill="black"
+      fill="currentColor"
       x="0.5"
       y="-9"
     >
@@ -283,14 +283,14 @@ exports[`Renders top-oriented 1`] = `
     transform="translate(1000,0)"
   >
     <line
-      stroke="black"
+      stroke="currentColor"
       x1="0.5"
       x2="0.5"
       y2="-6"
     />
     <text
       dy="0em"
-      fill="black"
+      fill="currentColor"
       x="0.5"
       y="-9"
     >
