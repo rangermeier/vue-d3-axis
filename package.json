@@ -1,6 +1,6 @@
 {
   "name": "vue-d3-axis",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Vue-based Axis component for D3",
   "main": "dist/vue-d3-axis.js",
   "main": "dist/types.d.ts",
