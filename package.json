@@ -3,12 +3,12 @@
   "version": "0.0.3",
   "description": "Vue-based Axis component for D3",
   "main": "dist/vue-d3-axis.js",
-  "main": "dist/types.d.ts",
+  "main": "dist/vue-d3-axis.d.ts",
   "repository": "https://github.com/seevee/vue-d3-axis.git",
   "author": "seevee",
   "license": "MIT",
   "scripts": {
-    "prepublish": "rm -rf dist && tsc -d -p tsconfig.build.json",
+    "prepublish": "rm -rf dist && tsc -p tsconfig.build.json",
     "lint": "eslint --ext .ts .",
     "test:travis": "jest",
     "test": "jest --verbose --coverage"
