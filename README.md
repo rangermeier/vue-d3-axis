@@ -1,6 +1,6 @@
 # vue-d3-axis
 
-[![Build Status](https://travis-ci.org/seevee/vue-d3-axis.svg?branch=master)](https://travis-ci.org/seevee/vue-d3-axis)
+[![Build Status](https://travis-ci.com/seevee/vue-d3-axis.svg?branch=master)](https://travis-ci.com/seevee/vue-d3-axis)
 
 Vue-based Axis component for D3
 
