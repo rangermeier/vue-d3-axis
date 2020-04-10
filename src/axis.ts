@@ -27,7 +27,7 @@ const defaultAxisStyle: AxisStyle = {
   tickFontSize: 10
 }
 
-export default {
+export const Axis = {
   render: function (createElement) {
     const axisStyle = { ...defaultAxisStyle, ...this.styles }
     const {

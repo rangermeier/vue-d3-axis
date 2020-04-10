@@ -1,6 +1,6 @@
 import { TickScale, PropsForAxis } from './types'
 
-export default function axisPropsFromTickScale<T>(
+export function axisPropsFromTickScale<T>(
   scale: TickScale<T>, tickCount: number
 ): PropsForAxis<T> {
   const range = scale.range()

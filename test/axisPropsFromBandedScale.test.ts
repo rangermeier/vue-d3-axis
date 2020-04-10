@@ -1,5 +1,5 @@
 import { scaleBand } from 'd3-scale'
-import axisPropsFromBandedScale from '@/axisPropsFromBandedScale'
+import { axisPropsFromBandedScale } from '@/axisPropsFromBandedScale'
 
 test('Works with bandwidth scales', () => {
   const scale = scaleBand()

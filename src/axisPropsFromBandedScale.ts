@@ -1,6 +1,6 @@
 import { BandedScale, PropsForAxis } from './types'
 
-export default function axisPropsFromBandedScale<T>(
+export function axisPropsFromBandedScale<T>(
   scale: BandedScale<T>,
 ): PropsForAxis<T> {
   const range = scale.range()
