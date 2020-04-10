@@ -4,7 +4,10 @@
     "declaration": true,
     "rootDir": "src",
     "outDir": "dist",
-    "removeComments": true
+    "removeComments": true,
+    "sourceMap": false,
+    "inlineSourceMap": true,
+    "inlineSources": true
   },
   "include": [
     "src/**/*.ts"
