@@ -1,3 +1,6 @@
-/.*
-
-/src/
+README.md
+jest.config.js
+.eslint*
+.editorconfig
+test/
+coverage/
