@@ -3,7 +3,7 @@
   "version": "0.0.9",
   "description": "Vue-based Axis component for D3",
   "main": "dist/index.js",
-  "main": "dist/index.d.ts",
+  "types": "dist/index.d.ts",
   "repository": "https://github.com/seevee/vue-d3-axis.git",
   "author": "seevee",
   "license": "MIT",
