@@ -4,3 +4,4 @@ jest.config.js
 .editorconfig
 test/
 coverage/
+demo/

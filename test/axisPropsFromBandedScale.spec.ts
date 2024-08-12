@@ -1,5 +1,6 @@
+import { expect, test } from 'vitest'
 import { scaleBand } from 'd3-scale'
-import { axisPropsFromBandedScale } from '@/axisPropsFromBandedScale'
+import { axisPropsFromBandedScale } from '../src/axisPropsFromBandedScale'
 
 test('Works with bandwidth scales', () => {
   const scale = scaleBand()

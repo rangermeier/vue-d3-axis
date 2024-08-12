@@ -1,38 +1,46 @@
 {
   "name": "vue-d3-axis",
-  "version": "0.0.10",
+  "version": "0.1.0",
   "description": "Vue-based Axis component for D3",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "repository": "https://github.com/seevee/vue-d3-axis.git",
+  "repository": "https://github.com/rangermeier/vue-d3-axis.git",
   "author": "seevee",
   "license": "MIT",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/vue-d3-axis.umd.cjs",
+  "module": "./dist/vue-d3-axis.js",
+  "exports": {
+    ".": {
+      "import": "./dist/vue-d3-axis.js",
+      "require": "./dist/vue-d3-axis.umd.cjs"
+    }
+  },
+  "types": "src/types.d.ts",
   "scripts": {
-    "prepublish": "rm -rf dist && tsc -p tsconfig.build.json",
-    "lint": "eslint --ext .ts .",
-    "test:travis": "jest",
-    "test": "jest --verbose --coverage"
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "prepare": "npm run build",
+    "setup": "npm install"
   },
   "peerDependencies": {
-    "vue": "^2.6.11"
+    "d3-scale": "^4.0.2",
+    "vue": "^3.4.35"
   },
-  "dependencies": {},
   "devDependencies": {
-    "@types/jest": "^25.2.1",
-    "@types/node": "^13.11.0",
-    "@typescript-eslint/eslint-plugin": "^2.27.0",
-    "@typescript-eslint/parser": "^2.27.0",
-    "@vue/test-utils": "^1.0.0-beta.32",
-    "d3-scale": "^3.2.1",
-    "eslint": "^6.8.0",
-    "eslint-plugin-jest": "^23.8.2",
-    "jest": "^25.2.7",
-    "jsdom": "^16.2.2",
-    "jsdom-global": "^3.0.2",
-    "ts-jest": "^25.3.1",
-    "typescript": "^3.8.3",
-    "vue": "^2.6.11",
-    "vue-template-compiler": "^2.6.11"
+    "@types/node": "^22.2.0",
+    "@vitejs/plugin-vue": "^5.1.2",
+    "@vue/test-utils": "^2.4.6",
+    "d3-scale": "^4.0.2",
+    "jsdom": "^24.1.1",
+    "typescript": "^5.5.3",
+    "vite": "^5.4.0",
+    "vitest": "^2.0.5",
+    "vue": "^3.4.35",
+    "vue-tsc": "^2.0.29"
   },
   "keywords": [
     "vue",
@@ -42,8 +50,5 @@
     "d3",
     "d3-axis",
     "d3-scale"
-  ],
-  "jest": {
-    "rootDir": "src"
-  }
+  ]
 }

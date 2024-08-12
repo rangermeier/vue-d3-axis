@@ -1,5 +1,4 @@
-import { PropType } from 'vue'
-import type { Scaler, AxisStyle } from './types'
+import { h } from 'vue'
 
 function translateX<T>(scale0: Scaler<T>, scale1: Scaler<T>, d: T): string {
   const x = scale0(d)
@@ -27,110 +26,76 @@ const defaultAxisStyle: AxisStyle = {
   tickFontSize: 10
 }
 
-export const Axis = {
-  render: function (createElement) {
-    const axisStyle = { ...defaultAxisStyle, ...this.styles }
-    const {
-      orient,
-      tickSizeInner,
-      tickPadding,
-      tickSizeOuter,
-      strokeWidth,
-      strokeColor,
-      tickFont,
-      tickFontSize
-    } = axisStyle
+export const Axis = <T>(props: PropsForAxis<T>) => {
+  const axisStyle = { ...defaultAxisStyle, ...props.styles }
+  const {
+    orient,
+    tickSizeInner,
+    tickPadding,
+    tickSizeOuter,
+    strokeWidth,
+    strokeColor,
+    tickFont,
+    tickFontSize
+  } = axisStyle
 
-    const transform = orient === TOP || orient === BOTTOM
-      ? translateX
-      : translateY
-    const tickTransformer = (d): string => transform(this.position, this.position, d)
+  const transform = orient === TOP || orient === BOTTOM
+    ? translateX
+    : translateY
+  const tickTransformer = (d: T): string => transform(props.position, props.position, d)
 
-    const k = orient === TOP || orient === LEFT ? -1 : 1
-    const isRight = orient === RIGHT
-    const isLeft = orient === LEFT
-    const isTop = orient === TOP
-    const isBottom = orient === BOTTOM
-    const isHorizontal = isRight || isLeft
-    const x = isHorizontal ? 'x' : 'y'
-    const y = isHorizontal ? 'y' : 'x'
+  const k = orient === TOP || orient === LEFT ? -1 : 1
+  const isRight = orient === RIGHT
+  const isLeft = orient === LEFT
+  const isTop = orient === TOP
+  const isBottom = orient === BOTTOM
+  const isHorizontal = isRight || isLeft
+  const x = isHorizontal ? 'x' : 'y'
+  const y = isHorizontal ? 'y' : 'x'
 
-    const halfWidth = strokeWidth / 2
-    const range0 = this.range[0] + halfWidth
-    const range1 = this.range[this.range.length - 1] + halfWidth
+  const halfWidth = strokeWidth / 2
+  const range0 = props.range[0] + halfWidth
+  const range1 = props.range[props.range.length - 1] + halfWidth
 
-    const spacing = Math.max(tickSizeInner, 0) + tickPadding
+  const spacing = Math.max(tickSizeInner, 0) + tickPadding
 
-    return createElement(
-      'g',
-      {
-        attrs: {
-          fill: 'none',
-          fontSize: tickFontSize,
-          fontFamily: tickFont,
-          textAnchor: isRight ? 'start' : isLeft ? 'end' : 'middle',
-          strokeWidth: strokeWidth
+  return h(
+    'g',
+    {
+      fill: 'none',
+      fontSize: tickFontSize,
+      fontFamily: tickFont,
+      textAnchor: isRight ? 'start' : isLeft ? 'end' : 'middle',
+      strokeWidth: strokeWidth
+    },
+    [
+      h('path', {
+        stroke: strokeColor,
+        d: isHorizontal
+          ? `M${k * tickSizeOuter},${range0}H${halfWidth}V${range1}H${k * tickSizeOuter}`
+          : `M${range0},${k * tickSizeOuter}V${halfWidth}H${range1}V${k * tickSizeOuter}`
+      }),
+      props.values.map((v, idx) => {
+        const lineProps: Partial<LineProps> = { stroke: strokeColor }
+        lineProps[`${x}2`] = k * tickSizeInner
+        lineProps[`${y}1`] = halfWidth
+        lineProps[`${y}2`] = halfWidth
+
+        const textProps: Partial<TextProps> = {
+          fill: strokeColor,
+          dy: isTop ? '0em' : isBottom ? '0.71em' : '0.32em'
         }
-      },
-      [
-        createElement('path', {
-          attrs: {
-            stroke: strokeColor,
-            d: isHorizontal
-              ? `M${k * tickSizeOuter},${range0}H${halfWidth}V${range1}H${k * tickSizeOuter}`
-              : `M${range0},${k * tickSizeOuter}V${halfWidth}H${range1}V${k * tickSizeOuter}`
-          }
-        }),
-        this.values.map((v, idx) => {
-          const lineProps = { stroke: strokeColor }
-          lineProps[`${x}2`] = k * tickSizeInner
-          lineProps[`${y}1`] = halfWidth
-          lineProps[`${y}2`] = halfWidth
-
-          const textProps = {
-            fill: strokeColor,
-            dy: isTop ? '0em' : isBottom ? '0.71em' : '0.32em'
-          }
-          textProps[`${x}`] = k * spacing
-          textProps[`${y}`] = halfWidth
-          return createElement('g', {
-            attrs: {
-              key: `tick-${idx}`,
-              opacity: 1,
-              transform: tickTransformer(v)
-            },
-          }, [
-            createElement('line', {
-              attrs: lineProps
-            }),
-            createElement('text', {
-              attrs: textProps
-            }, this.format(v)),
-          ])
-        })
-      ]
-    )
-  },
-  props: {
-    styles: {
-      type: Object,
-      required: false
-    },
-    range: {
-      type: Array as PropType<number[]>,
-      required: false
-    },
-    values: {
-      type: Array as PropType<number[]>,
-      required: false
-    },
-    position: {
-      type: Function as PropType<Scaler<number>>,
-      required: false
-    },
-    format: {
-      type: Function as PropType<(d: number) => string>,
-      required: false
-    }
-  }
+        textProps[`${x}`] = k * spacing
+        textProps[`${y}`] = halfWidth
+        return h('g', {
+          key: `tick-${idx}`,
+          opacity: 1,
+          transform: tickTransformer(v)
+        }, [
+          h('line', lineProps),
+          h('text', textProps, props.format(v)),
+        ])
+      })
+    ]
+  )
 }

@@ -1,5 +1,6 @@
+import { expect, test } from 'vitest'
 import { shallowMount } from '@vue/test-utils'
-import {Axis, TOP, RIGHT, BOTTOM, LEFT} from '@/axis'
+import {Axis, TOP, RIGHT, BOTTOM, LEFT} from '../src/axis'
 
 
 test('Renders bottom-oriented', () => {

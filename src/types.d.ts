@@ -1,6 +1,6 @@
-export type Scaler<T> = (x: T) => number
+type Scaler<T> = (x: T) => number
 
-export interface BandedScale<T> {
+interface BandedScale<T> {
   (x: T): number
   domain: () => T[]
   range: () => number[]
@@ -10,7 +10,7 @@ export interface BandedScale<T> {
 }
 
 
-export interface TickScale<T> {
+interface TickScale<T> {
   (x: T): number
   domain: () => T[]
   range: () => number[]
@@ -21,9 +21,9 @@ export interface TickScale<T> {
 }
 
 
-export type Orients = 'TOP' | 'RIGHT' | 'BOTTOM' | 'LEFT'
+type Orients = 'TOP' | 'RIGHT' | 'BOTTOM' | 'LEFT'
 
-export interface AxisStyle {
+interface AxisStyle {
   orient: Orients
   tickSizeInner: number
   tickSizeOuter: number
@@ -35,9 +35,25 @@ export interface AxisStyle {
 }
 
 
-export interface PropsForAxis<T> {
+interface PropsForAxis<T> {
   range: number[]
   values: T[]
   position: Scaler<T>
   format: (d: T) => string
+  styles?: Partial<AxisStyle>
+}
+
+interface LineProps {
+  x1: number
+  y1: number
+  x2: number
+  y2: number
+  stroke: string
+}
+
+interface TextProps {
+  fill: string
+  dy: string
+  x: number
+  y: number
 }

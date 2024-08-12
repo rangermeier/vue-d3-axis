@@ -1,5 +1,6 @@
+import { expect, test } from 'vitest'
 import {scaleLinear} from 'd3-scale'
-import { axisPropsFromTickScale } from '@/axisPropsFromTickScale'
+import { axisPropsFromTickScale } from '../src/axisPropsFromTickScale'
 
 test('Creates axis props', () => {
   const scale = scaleLinear().domain([0, 100]).range([0, 500])

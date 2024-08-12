@@ -1,5 +1,3 @@
-import { TickScale, PropsForAxis } from './types'
-
 export function axisPropsFromTickScale<T>(
   scale: TickScale<T>, tickCount: number
 ): PropsForAxis<T> {
