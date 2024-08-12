@@ -6,7 +6,7 @@ Vue-based Axis component for D3
 
 D3v4's modular structure means you can pull in things like the scaling or colour logic, and leave out DOM functionality if you're using D3 in an environment that 'owns' the DOM -- such as Vue.
 
-This is a fork for Vue 3 from [vue-d3-axis](https://github.com/seevee/vue-d3-axis), which is a port of the [d3-axis](https://github.com/d3/d3-axis) module into a Vue component and helper functions.
+This is a fork for Vue 3 from [vue-d3-axis](https://github.com/seevee/vue-d3-axis), which itself was a port of the [react-d3-axis](https://github.com/shauns/react-d3-axis). All three projects are wrappers around [d3-axis](https://github.com/d3/d3-axis) into a Vue or React component and helper functions.
 
 ## Examples
 
@@ -15,7 +15,7 @@ import {Axis, axisPropsFromTickScale, LEFT} from 'vue-d3-axis';
 import {scaleLinear} from 'd3-scale';
 
 const scale = scaleLinear().domain([0, 100]).range([0, 500]);
-<Axis v-bind="axisPropsFromTickScale(scale, 10)" :styles="{orient: LEFT}" /&gt;
+<Axis v-bind="axisPropsFromTickScale(scale, 10)" :styles="{orient: LEFT}" />
 ```
 ## API
 
@@ -27,11 +27,11 @@ Renders an Axis in SVG (so it expects to be within an `svg` element).
 
 The values corresponding to where the ticks on the axis will be made.
 
-##### position: (d: T) =&gt; number
+##### position: (d: T) ⇒ number
 
 A function converting a tick value to an offset along the axis.
 
-##### format: (d: T) =&gt; string
+##### format: (d: T) ⇒ string
 
 A function rendering a tick value to a string, for its label.
 
