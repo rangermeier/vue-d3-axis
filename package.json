@@ -23,8 +23,8 @@
     "build": "vue-tsc -b && vite build",
     "preview": "vite preview",
     "test": "vitest",
-    "prepare": "npm run build",
-    "setup": "npm install"
+    "prepare": "pnpm run build",
+    "setup": "pnpm install"
   },
   "peerDependencies": {
     "d3-scale": "^4.0.2",
