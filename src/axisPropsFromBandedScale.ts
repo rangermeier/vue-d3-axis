@@ -1,3 +1,5 @@
+import type { BandedScale, PropsForAxis } from './types'
+
 export function axisPropsFromBandedScale<T>(
   scale: BandedScale<T>,
 ): PropsForAxis<T> {

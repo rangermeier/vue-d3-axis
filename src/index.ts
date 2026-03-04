@@ -1,3 +1,4 @@
 export { axisPropsFromTickScale } from './axisPropsFromTickScale'
 export { axisPropsFromBandedScale } from './axisPropsFromBandedScale'
-export { Axis, TOP, RIGHT, BOTTOM, LEFT } from './axis'
+export { TOP, RIGHT, BOTTOM, LEFT } from './orientation'
+export { default as Axis } from './axis.vue'

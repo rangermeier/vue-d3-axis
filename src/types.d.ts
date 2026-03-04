@@ -35,7 +35,7 @@ interface AxisStyle {
 }
 
 
-interface PropsForAxis<T> {
+export interface PropsForAxis<T> {
   range: number[]
   values: T[]
   position: Scaler<T>

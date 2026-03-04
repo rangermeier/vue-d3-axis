@@ -3,10 +3,10 @@
 exports[`Renders bottom-oriented 1`] = `
 <g
   fill="none"
-  fontfamily="sans-serif"
-  fontsize="10"
-  strokewidth="1"
-  textanchor="middle"
+  font-family="sans-serif"
+  font-size="10"
+  stroke-width="1"
+  text-anchor="middle"
 >
   <path
     d="M0.5,6V0.5H1000.5V6"
@@ -77,10 +77,10 @@ exports[`Renders bottom-oriented 1`] = `
 exports[`Renders left-oriented 1`] = `
 <g
   fill="none"
-  fontfamily="sans-serif"
-  fontsize="10"
-  strokewidth="1"
-  textanchor="end"
+  font-family="sans-serif"
+  font-size="10"
+  stroke-width="1"
+  text-anchor="end"
 >
   <path
     d="M-6,0.5H0.5V1000.5H-6"
@@ -151,10 +151,10 @@ exports[`Renders left-oriented 1`] = `
 exports[`Renders right-oriented 1`] = `
 <g
   fill="none"
-  fontfamily="sans-serif"
-  fontsize="10"
-  strokewidth="1"
-  textanchor="start"
+  font-family="sans-serif"
+  font-size="10"
+  stroke-width="1"
+  text-anchor="start"
 >
   <path
     d="M6,0.5H0.5V1000.5H6"
@@ -225,10 +225,10 @@ exports[`Renders right-oriented 1`] = `
 exports[`Renders top-oriented 1`] = `
 <g
   fill="none"
-  fontfamily="sans-serif"
-  fontsize="10"
-  strokewidth="1"
-  textanchor="middle"
+  font-family="sans-serif"
+  font-size="10"
+  stroke-width="1"
+  text-anchor="middle"
 >
   <path
     d="M0.5,-6V0.5H1000.5V-6"
