@@ -1,9 +1,9 @@
 {
   "name": "vue-d3-axis",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Vue-based Axis component for D3",
   "repository": "https://github.com/rangermeier/vue-d3-axis.git",
-  "author": "seevee",
+  "author": "rangermeier",
   "license": "MIT",
   "type": "module",
   "files": [
