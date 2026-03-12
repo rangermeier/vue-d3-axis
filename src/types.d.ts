@@ -32,6 +32,7 @@ interface AxisStyle {
   strokeColor: string
   tickFont: string
   tickFontSize: number
+  hideOverlappingTicks: boolean
 }
 
 

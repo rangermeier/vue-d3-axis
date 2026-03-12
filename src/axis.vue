@@ -1,5 +1,5 @@
 domainFrom<script setup lang="ts" generic="T">
-import { computed } from 'vue'
+import { computed, nextTick, useTemplateRef, watch } from 'vue'
 import { TOP, RIGHT, BOTTOM, LEFT } from './orientation'
 import type { PropsForAxis, AxisStyle, Scaler } from './types'
 
@@ -13,7 +13,8 @@ const defaultAxisStyle: AxisStyle = {
   strokeWidth: 1,
   strokeColor: 'currentColor',
   tickFont: 'sans-serif',
-  tickFontSize: 10
+  tickFontSize: 10,
+  hideOverlappingTicks: false
 }
 
 function translateX<T>(scale0: Scaler<T>, scale1: Scaler<T>, d: T): string {
@@ -85,6 +86,44 @@ const textAttrs = computed(() => {
   attrs[yAttr.value] = halfWidth.value
   return attrs
 })
+
+const tickLabel = useTemplateRef('tickLabel')
+watch([() => axisStyle.value.hideOverlappingTicks, () => props.values], () => {
+  if(tickLabel.value?.length) {
+    if(axisStyle.value.hideOverlappingTicks) {
+      nextTick(() => {
+        const ticks = tickLabel.value as unknown as SVGTextElement[]
+        if(!ticks.length) return
+        const start = isHorizontal.value ? 'top' : 'left'
+        const end = isHorizontal.value ? 'bottom' : 'right'
+        const boxes = ticks.map((label: SVGTextElement) => label.getBoundingClientRect())
+        const maxOverlap = Math.max(...boxes.map((box, index) => {
+          let overlapBoxes = 1
+          while(overlapBoxes < index && box[start] < boxes[index - overlapBoxes][end] + 4) {
+            overlapBoxes++
+          }
+          return overlapBoxes
+        }))
+        if(maxOverlap > 1) {
+          const intvl  = maxOverlap > 5 ? 5 : 2
+          const stepSize = Math.ceil(maxOverlap / intvl) * intvl
+          ticks.forEach((label: SVGTextElement, index) => {
+            if(index % stepSize !== 0) {
+              label.setAttribute('opacity', '0')
+            } else {
+              label.setAttribute('opacity', '1')
+            }
+          })
+        } else {
+          ticks.forEach((label: SVGTextElement) => label.setAttribute('opacity', '1'))
+        }
+
+      })
+    } else {
+      tickLabel.value.forEach((label: SVGTextElement) => label.setAttribute('opacity', '1'))
+    }
+  }
+}, { immediate: true, deep: true })
 </script>
 
 <template>
@@ -103,7 +142,7 @@ const textAttrs = computed(() => {
       :transform="tickTransform(v)"
     >
       <line v-bind="lineAttrs" />
-      <text v-bind="textAttrs">{{ format(v) }}</text>
+      <text v-bind="textAttrs" ref="tickLabel">{{ format(v) }}</text>
     </g>
   </g>
 </template>

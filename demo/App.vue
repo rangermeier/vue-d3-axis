@@ -8,6 +8,7 @@ import {scaleLinear} from 'd3-scale';
 const nbTicks = ref(10);
 const domainFrom = ref(0);
 const domainTo = ref(100);
+const hideOverlappingTicks = ref(false);
 
 const scale = computed(() => scaleLinear().domain([domainFrom.value, domainTo.value]).range([0, 500]));
 const orientations = [TOP, RIGHT, BOTTOM, LEFT];
@@ -28,13 +29,17 @@ const orientations = [TOP, RIGHT, BOTTOM, LEFT];
             Domain to:
             <input type="number" v-model.number="domainTo" />
         </label>
+        <label>
+            Hide overlapping ticks:
+            <input type="checkbox" v-model="hideOverlappingTicks" />
+        </label>
     </form>
     <article v-for="orient in orientations" :key="orient">
         <h2>Orientation {{orient}}</h2>
         <svg :class="orient">
             <Axis
                 v-bind="axisPropsFromTickScale(scale, nbTicks)"
-                :styles="{orient}"
+                :styles="{orient, hideOverlappingTicks}"
                 class="axis"
             />
         </svg>

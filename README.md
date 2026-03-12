@@ -43,6 +43,22 @@ The numerical range of the *rendered* axis. So, if an axis runs 1000px wide, thi
 
 This is optional -- by default the axis is rendered with 'bottom' alignment (left-to-right, ticks below the line).
 
+Defaults:
+
+```json
+{
+  orient: 'BOTTOM',
+  tickSizeInner: 6,
+  tickSizeOuter: 6,
+  tickPadding: 3,
+  strokeWidth: 1,
+  strokeColor: 'currentColor',
+  tickFont: 'sans-serif',
+  tickFontSize: 10,
+  hideOverlappingTicks: false
+}
+```
+
 ### axisPropsFromTickScale(scale, tickCount)
 
 Creates props for an `<Axis />` component from a tick-based D3 scale, such as `scaleLinear`.
