@@ -88,42 +88,50 @@ const textAttrs = computed(() => {
 })
 
 const tickLabel = useTemplateRef('tickLabel')
-watch([() => axisStyle.value.hideOverlappingTicks, () => props.values], () => {
-  if(tickLabel.value?.length) {
-    if(axisStyle.value.hideOverlappingTicks) {
-      nextTick(() => {
-        const ticks = tickLabel.value as unknown as SVGTextElement[]
-        if(!ticks.length) return
-        const start = isHorizontal.value ? 'top' : 'left'
-        const end = isHorizontal.value ? 'bottom' : 'right'
-        const boxes = ticks.map((label: SVGTextElement) => label.getBoundingClientRect())
-        const maxOverlap = Math.max(...boxes.map((box, index) => {
-          let overlapBoxes = 1
-          while(overlapBoxes < index && box[start] < boxes[index - overlapBoxes][end] + 4) {
-            overlapBoxes++
-          }
-          return overlapBoxes
-        }))
-        if(maxOverlap > 1) {
-          const intvl  = maxOverlap > 5 ? 5 : 2
-          const stepSize = Math.ceil(maxOverlap / intvl) * intvl
-          ticks.forEach((label: SVGTextElement, index) => {
-            if(index % stepSize !== 0) {
-              label.setAttribute('opacity', '0')
-            } else {
-              label.setAttribute('opacity', '1')
+watch(
+  [
+    () => axisStyle.value.hideOverlappingTicks,
+    () => props.values,
+    () => tickLabel.value
+  ],
+  () => {
+    if(tickLabel.value?.length) {
+      if(axisStyle.value.hideOverlappingTicks) {
+        nextTick(() => {
+          const ticks = tickLabel.value as unknown as SVGTextElement[]
+          if(!ticks.length) return
+          const start = isHorizontal.value ? 'top' : 'left'
+          const end = isHorizontal.value ? 'bottom' : 'right'
+          const boxes = ticks.map((label: SVGTextElement) => label.getBoundingClientRect())
+          const maxOverlap = Math.max(...boxes.map((box, index) => {
+            let overlapBoxes = 1
+            while(overlapBoxes < index && box[start] < boxes[index - overlapBoxes][end] + 4) {
+              overlapBoxes++
             }
-          })
-        } else {
-          ticks.forEach((label: SVGTextElement) => label.setAttribute('opacity', '1'))
-        }
+            return overlapBoxes
+          }))
+          if(maxOverlap > 1) {
+            const intvl  = maxOverlap > 5 ? 5 : 2
+            const stepSize = Math.ceil(maxOverlap / intvl) * intvl
+            ticks.forEach((label: SVGTextElement, index) => {
+              if(index % stepSize !== 0) {
+                label.setAttribute('opacity', '0')
+              } else {
+                label.setAttribute('opacity', '1')
+              }
+            })
+          } else {
+            ticks.forEach((label: SVGTextElement) => label.setAttribute('opacity', '1'))
+          }
 
-      })
-    } else {
-      tickLabel.value.forEach((label: SVGTextElement) => label.setAttribute('opacity', '1'))
+        })
+      } else {
+        tickLabel.value.forEach((label: SVGTextElement) => label.setAttribute('opacity', '1'))
+      }
     }
-  }
-}, { immediate: true, deep: true })
+  },
+  { immediate: true, deep: true }
+)
 </script>
 
 <template>
