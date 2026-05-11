@@ -1,4 +1,4 @@
-import type { BandedScale, PropsForAxis } from './types'
+import type { PropsForAxis } from './axis.vue'
 
 export function axisPropsFromBandedScale<T>(
   scale: BandedScale<T>,

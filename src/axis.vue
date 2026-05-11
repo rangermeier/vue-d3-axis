@@ -1,7 +1,14 @@
 domainFrom<script setup lang="ts" generic="T">
 import { computed, nextTick, useTemplateRef, watch } from 'vue'
 import { TOP, RIGHT, BOTTOM, LEFT } from './orientation'
-import type { PropsForAxis, AxisStyle, Scaler } from './types'
+
+export interface PropsForAxis<T> {
+  range: number[]
+  values: T[]
+  position: Scaler<T>
+  format: (d: T) => string
+  styles?: Partial<AxisStyle>
+}
 
 const props = defineProps<PropsForAxis<T>>()
 

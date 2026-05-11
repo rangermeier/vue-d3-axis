@@ -9,21 +9,19 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/vue-d3-axis.umd.cjs",
-  "module": "./dist/vue-d3-axis.js",
   "exports": {
     ".": {
-      "import": "./dist/vue-d3-axis.js",
-      "require": "./dist/vue-d3-axis.umd.cjs"
+      "default": "./dist/vue-d3-axis.js",
+      "types": "./dist/index.d.ts"
     }
   },
-  "types": "src/types.d.ts",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc -b && vite build",
+    "build": "vite build",
+    "build:types": "vue-tsc --declaration --emitDeclarationOnly",
     "preview": "vite preview",
     "test": "vitest",
-    "prepare": "pnpm run build",
+    "prepare": "pnpm run build && pnpm run build:types",
     "setup": "pnpm install"
   },
   "peerDependencies": {

@@ -7,8 +7,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
-      name: 'Vue D3 Axis',
-      fileName: 'vue-d3-axis',
+      formats: ['es'],
+      name: 'Vue D3 Axis'
     },
     rollupOptions: {
       external: ['vue'],

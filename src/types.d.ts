@@ -36,14 +36,6 @@ interface AxisStyle {
 }
 
 
-export interface PropsForAxis<T> {
-  range: number[]
-  values: T[]
-  position: Scaler<T>
-  format: (d: T) => string
-  styles?: Partial<AxisStyle>
-}
-
 interface LineProps {
   x1: number
   y1: number

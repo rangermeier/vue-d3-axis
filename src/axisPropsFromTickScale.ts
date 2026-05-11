@@ -1,4 +1,5 @@
-import type { TickScale, PropsForAxis } from './types'
+import type { PropsForAxis } from './axis.vue'
+
 export function axisPropsFromTickScale<T>(
   scale: TickScale<T>, tickCount: number
 ): PropsForAxis<T> {
