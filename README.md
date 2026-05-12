@@ -6,7 +6,7 @@ Vue-based Axis component for D3
 
 D3v4's modular structure means you can pull in things like the scaling or colour logic, and leave out DOM functionality if you're using D3 in an environment that 'owns' the DOM -- such as Vue.
 
-This is a fork for Vue 3 from [vue-d3-axis](https://github.com/seevee/vue-d3-axis), which itself was a port of the [react-d3-axis](https://github.com/shauns/react-d3-axis). All three projects are wrappers around [d3-axis](https://github.com/d3/d3-axis) into a Vue or React component and helper functions.
+This is a fork for Vue 3 from [seevee/vue-d3-axis](https://github.com/seevee/vue-d3-axis), which itself was a port of the [react-d3-axis](https://github.com/shauns/react-d3-axis). All three projects are wrappers around [d3-axis](https://github.com/d3/d3-axis) into a Vue or React component and helper functions.
 
 ## Examples
 
@@ -47,15 +47,15 @@ Defaults:
 
 ```json
 {
-  orient: 'BOTTOM',
-  tickSizeInner: 6,
-  tickSizeOuter: 6,
-  tickPadding: 3,
-  strokeWidth: 1,
-  strokeColor: 'currentColor',
-  tickFont: 'sans-serif',
-  tickFontSize: 10,
-  hideOverlappingTicks: false
+  "orient": "BOTTOM",
+  "tickSizeInner": 6,
+  "tickSizeOuter": 6,
+  "tickPadding": 3,
+  "strokeWidth": 1,
+  "strokeColor": "currentColor",
+  "tickFont": "sans-serif",
+  "tickFontSize": 10,
+  "hideOverlappingTicks": false
 }
 ```
 
